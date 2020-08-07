@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Grid, Container } from "@material-ui/core";
 
 import useStyles from "./Form.styles";
-import { texts, steps, defaultValues } from "./Form.data";
+import { texts, steps, stepComponents, defaultValues } from "./Form.data";
 
 import FormProvider, { FormContext } from "./FormProvider";
 import FormNavigation from "./FormNavigation";
@@ -23,10 +23,10 @@ function Form() {
   const formContext = useContext(FormContext);
   const classes = useStyles();
 
-  const StepComponent = formContext.steps.find(
-    step => step.key === formContext.activeStepKey
-  ).component;
-  const stepTexts = texts.find(text => text.key === formContext.activeStepKey);
+  const StepComponent = stepComponents[formContext.activeStepKey];
+  const stepTexts = texts.find(
+    (text) => text.key === formContext.activeStepKey
+  );
 
   return (
     <Container maxWidth="lg">

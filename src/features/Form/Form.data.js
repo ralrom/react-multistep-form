@@ -4,14 +4,20 @@ import CatKitchen from "./steps/CatKitchen";
 
 export const defaultValues = {
   demo: false,
-  lunch: false,
+  lunch: false
 };
 
 export const steps = [
-  { key: "generalInfo", component: GeneralInfo },
-  { key: "visitType", component: VisitType },
-  { key: "catKitchen", component: CatKitchen, conditions: (fields) => fields.lunch === true },
+  { key: "generalInfo" },
+  { key: "visitType" },
+  { key: "catKitchen", conditions: (fields) => fields.lunch === true }
 ];
+
+export const stepComponents = {
+  generalInfo: GeneralInfo,
+  visitType: VisitType,
+  catKitchen: CatKitchen
+};
 
 export const texts = [
   {
@@ -19,32 +25,34 @@ export const texts = [
     header: {
       title: "Crée ta visite et identifie ses besoins",
       description:
-        "Les informations que tu remplis ici serviront à préparer l’accueil des visiteurs à la réception et à sélectionner les services que tu nécessites.",
+        "Les informations que tu remplis ici serviront à préparer l’accueil des visiteurs à la réception et à sélectionner les services que tu nécessites."
     },
     breadcrumb: {
-      title: "General Info",
-    },
+      title: "General Info"
+    }
   },
   {
     key: "visitType",
     breadcrumb: {
-      title: "Visit Type",
+      title: "Visit Type"
     },
     header: {
-      title: "Sélectionne le style de visite que tu voudrais que tes invités expérimentent.",
+      title:
+        "Sélectionne le style de visite que tu voudrais que tes invités expérimentent.",
       description:
-        "On te laisse libre de choisir la formule que tu souhaites offrir à tes visiteurs; mais on te recommande fortement d’opter pour la formule Backstage.",
-    },
+        "On te laisse libre de choisir la formule que tu souhaites offrir à tes visiteurs; mais on te recommande fortement d’opter pour la formule Backstage."
+    }
   },
   {
     key: "catKitchen",
     breadcrumb: {
-      title: "Cat Kitchen",
+      title: "Cat Kitchen"
     },
     header: {
-      title: "Passe ta commande de bouffe pour le déjeuner, le lunch ou les deux.",
+      title:
+        "Passe ta commande de bouffe pour le déjeuner, le lunch ou les deux.",
       description:
-        "On ne peut pas prédire ce qui sera au menu cette journée-là, mais on sait certainement que l’équipe de la CatKitchen pourra accommoder la plupart des restrictions alimentaires des visiteurs et ton équipe.",
-    },
-  },
+        "On ne peut pas prédire ce qui sera au menu cette journée-là, mais on sait certainement que l’équipe de la CatKitchen pourra accommoder la plupart des restrictions alimentaires des visiteurs et ton équipe."
+    }
+  }
 ];
