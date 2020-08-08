@@ -1,5 +1,7 @@
 # react-multistep-form
 
+[View Demo](https://4o0sq.csb.app/)
+
 This is a simple demo showing a multi-step form with conditional steps. All the logic for determining the active, previous and next steps is contained in the `FormProvider` HOC component, which exposes methods to make working with multi-step forms easier, as well as some utilities for `react-hook-form` so that each step in a form can register its inputs.
 
 FormProvider requires a `steps` prop which should contain the steps in order, in the following format:
